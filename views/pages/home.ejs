@@ -1,0 +1,39 @@
+<%- include('../template/header'); -%> 
+
+<div class="container mt-4">
+ 
+
+<a href="/add/user">  <button class="btn btn-info">New User</button>
+</a>
+  <div class="tb mt-4">
+  <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Mail</th>
+      <th scope="col">Gander</th>
+      <th scope="col" class="text-center">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% for(let i =0; i<user.length; i++) {%>
+    <tr>
+      <th scope="row"><%= i + 1 %></th>
+      <td><%= user[i].name %> </td>
+      <td><%= user[i].email %> </td>
+      <td><%= user[i].gender %> </td>
+      <td class="text-center">
+        <a class="btn btn-info" href="/update/user/<%= user[i]._id %>">Edit</a>
+        <a class="btn btn-danger" href="/delete/<%= user[i]._id %>">Delete</a>
+      </td>
+      </tr>
+      <%} %> 
+  </tbody>
+</table>
+
+  </div>
+
+</div>
+
+<%- include('../template/footer'); -%> 

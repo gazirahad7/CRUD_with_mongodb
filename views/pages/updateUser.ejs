@@ -1,0 +1,70 @@
+<%- include('../template/header'); -%>
+
+<div class="container mt-4">
+  <h4 class="text-center mb-3">Update an user !</h4>
+
+  <div class="row">
+    <div class="col-md-6 offset-3">
+      <form action="/update/user/<%= user._id %>" method="POST">
+        <div class="form-floating mb-3">
+         <input type="hidden" name="id" value="<%= user._id %>">
+
+          <input
+            type="text"
+            class="form-control"
+            name="name"
+            value="<%= user.name %>"
+            id="floatingPassword"
+            placeholder="Password"
+          />
+          <label for="floatingPassword">Name</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input
+            type="email"
+            class="form-control"
+            name="email"
+            id="floatingInput"
+            value="<%= user.email %>"
+            placeholder="name@example.com"
+          />
+          <label for="floatingInput">Email address</label>
+        </div>
+
+        <div class="mb-3">
+          <label for="" class="form-label"> Gender:</label>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              value="Male"
+              name="gender"
+              id="flexRadioDefault1"
+              <%= user.gender == 'Male' ? 'checked' : '' %> 
+            />
+            <label class="form-check-label" for="flexRadioDefault1">
+              <i class="las la-male"></i>Male
+            </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              value="Female"
+              name="gender"
+              id="flexRadioDefault2"
+              <%= user.gender == 'Female' ? 'checked' : '' %> 
+            />
+            <label class="form-check-label" for="flexRadioDefault2">
+              <i class="las la-female"></i>Female
+            </label>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-info">Update user</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<%- include('../template/footer'); -%>
